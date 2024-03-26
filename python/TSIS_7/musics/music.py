@@ -1,37 +1,37 @@
 import pygame
 import os
 
-# Initialize Pygame
+# Pygame başlatma
 pygame.init()
 
-# Set up the screen
+# Ekran ayarları
 screen_width = 600
 screen_height = 400
 screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption("Music Player")
 
-# Set up colors
+# Renk ayarları
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 
-# Set up fonts
+# Font ayarları
 font = pygame.font.Font(None, 36)
 
-# Set up music directory
+# Müzik dizini ayarları
 music_dir = "musics"
 os.chdir(music_dir)
 songs = os.listdir()
 
-# Set up initial state
+# Başlangıç durumu ayarları
 playing = False
 current_song = 0
 
-# Function to load and play music
+# Müziği yükle ve çal fonksiyonu
 def play_music(song):
     pygame.mixer.music.load(song)
     pygame.mixer.music.play()
 
-# Main loop
+# Ana döngü
 running = True
 while running:
     screen.fill(WHITE)
@@ -55,7 +55,7 @@ while running:
             elif event.key == pygame.K_q:
                 running = False
 
-    # Display instructions
+    # Talimatları göster
     text = font.render("Pressed S : Toggle Play/Pause", True, BLACK)
     screen.blit(text, (50, 50))
     text = font.render("Pressed N : Next Music", True, BLACK)
@@ -67,6 +67,6 @@ while running:
 
     pygame.display.flip()
 
-# Quit Pygame
+# pygame kapat
 pygame.quit()
 
