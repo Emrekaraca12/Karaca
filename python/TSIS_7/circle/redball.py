@@ -3,22 +3,22 @@ import sys
 
 pygame.init()
 
-# Set up display
+# Ekran ayarları
 width, height = 800, 600
 screen = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Moving Ball")
 
-# Set up colors
+# Renk ayarları
 white = (255, 255, 255)
 red = (255, 0, 0)
 
-# Set up ball properties
+# Topun özelliklerinin ayarlanması
 ball_radius = 25
 ball_x = width // 2
 ball_y = height // 2
 ball_speed = 20
 
-# Main game loop
+# Ana oyun döngüsü
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -35,15 +35,15 @@ while True:
     if keys[pygame.K_RIGHT] and ball_x + ball_speed < width:
         ball_x += ball_speed
 
-    # Fill the screen with white
+   # Ekranı beyaz ile doldur
     screen.fill(white)
 
-    # Draw the red ball
+     # Kırmızı topu çiz
     pygame.draw.circle(screen, red, (ball_x, ball_y), ball_radius)
 
-    # Update the display
+    # Ekranı güncelle
     pygame.display.flip()
 
-    # Cap the frame rate
+   # Kare hızını sınırla
     pygame.time.Clock().tick(30)
 
